@@ -1,0 +1,55 @@
+<icecast>
+    <limits>
+        <clients>100</clients>
+        <sources>2</sources>
+        <queue-size>524288</queue-size>
+        <client-timeout>30</client-timeout>
+        <header-timeout>15</header-timeout>
+        <source-timeout>10</source-timeout>
+    </limits>
+
+    <authentication>
+        <admin-user>admin</admin-user>
+        <admin-password>hackme</admin-password>
+        <source-user>source</source-user>
+        <source-password>hackme</source-password>
+    </authentication>
+
+    <hostname>localhost</hostname>
+    <location>Earth</location>
+    <admin>icemaster@localhost</admin>
+
+    <listen-socket>
+        <port>8000</port>
+    </listen-socket>
+
+    <fileserve>1</fileserve>
+
+    <paths>
+        <basedir>/usr/share/icecast2</basedir>
+        <logdir>/var/log/icecast2</logdir>
+        <webroot>/usr/share/icecast2/web</webroot>
+        <adminroot>/usr/share/icecast2/admin</adminroot>
+    </paths>
+
+    <logging>
+        <accesslog>access.log</accesslog>
+        <errorlog>error.log</errorlog>
+        <loglevel>3</loglevel>
+        <logsize>10000</logsize>
+    </logging>
+
+    <!-- Public mount for live streaming -->
+    <mount>
+        <mount-name>/stream</mount-name>
+        <public>1</public>
+        <!-- No authentication block needed; inherits global source-user/password -->
+    </mount>
+
+    <!-- CORS headers for frontend audio playback -->
+    <http-headers>
+        <header name="Access-Control-Allow-Origin" value="*"/>
+        <header name="Access-Control-Allow-Methods" value="GET, OPTIONS"/>
+        <header name="Access-Control-Allow-Headers" value="Range, Accept, Origin, Referer, User-Agent"/>
+    </http-headers>
+</icecast>

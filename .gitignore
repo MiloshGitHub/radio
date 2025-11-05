@@ -1,0 +1,7 @@
+node_modules
+.env
+recordings
+*.log
+*.example
+*copy.txt
+*.yml.txt
