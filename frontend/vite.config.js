@@ -1,10 +1,14 @@
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  plugins: [react()],
+  build: {
+    outDir: 'dist',
+  },
   server: {
-    host: true, // important for Docker access
-    port: 80,
-    strictPort: true, // fail if port is already in use
-    allowedHosts: ['frontend']
+    host: true,
+    port: 5173,
+    strictPort: true,
   },
 });

@@ -4,3 +4,4 @@ recordings
 *.example
 *copy.txt
 *.yml.txt
+backend/db_data
